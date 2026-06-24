@@ -3,7 +3,7 @@ export const getAnalytics =
   async (dispatch) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/analytics/sales?page=${page}&limit=${limit}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/analytics/sales?page=${page}&limit=${limit}`,
         {
           credentials: "include",
         }

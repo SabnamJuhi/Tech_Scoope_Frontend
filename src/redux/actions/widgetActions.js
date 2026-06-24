@@ -6,7 +6,7 @@ export const getWidgets = (dashboardId) => async (dispatch) => {
     if (!dashboardId) return;
 
     const res = await fetch(
-      `http://localhost:5000/api/widgets/${dashboardId}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/widgets/${dashboardId}`,
       { credentials: "include" }
     );
 
@@ -30,7 +30,7 @@ export const createWidget = (payload) => async (dispatch) => {
     }
 
     const res = await fetch(
-      `http://localhost:5000/api/widgets`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/widgets`,
       {
         method: "POST",
         headers: {
@@ -68,7 +68,7 @@ export const deleteWidget =
   (widgetId, workspaceId) => async (dispatch) => {
 
     await fetch(
-      `http://localhost:5000/api/widgets/${widgetId}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/widgets/${widgetId}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -108,7 +108,7 @@ export const pinWidget =
 (widgetId)=>async(dispatch)=>{
 
   const res = await fetch(
-    `http://localhost:5000/api/widgets/${widgetId}/pin`,
+    `${import.meta.env.VITE_BACKEND_URL}/api/widgets/${widgetId}/pin`,
     {
       method:"PATCH",
       credentials:"include"
@@ -137,7 +137,7 @@ export const pinWidget =
 export const updateLayout = (body) => async () => {
   try {
     await fetch(
-      "http://localhost:5000/api/widgets/layout",
+      `${import.meta.env.VITE_BACKEND_URL}/api/widgets/layout`,
       {
         method: "PUT",
         headers: {

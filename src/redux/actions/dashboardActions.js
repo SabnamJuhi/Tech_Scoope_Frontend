@@ -3,7 +3,7 @@
 export const getDashboards = () => async (dispatch) => {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/dashboards",
+      `${import.meta.env.VITE_BACKEND_URL}/api/dashboards`,
       {
         credentials: "include",
       }
@@ -24,7 +24,7 @@ export const createDashboard =
   (workspaceId, body) => async (dispatch) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/dashboards/workspace/${workspaceId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/dashboards/workspace/${workspaceId}`,
         {
           method: "POST",
           headers: {
@@ -50,7 +50,7 @@ export const deleteDashboard =
   (dashboardId, workspaceId) =>
   async (dispatch) => {
     await fetch(
-      `http://localhost:5000/api/dashboards/${dashboardId}/${workspaceId}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/dashboards/${dashboardId}/${workspaceId}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -67,7 +67,7 @@ export const deleteDashboard =
   (workspaceId) => async (dispatch) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/dashboards/workspace/${workspaceId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/dashboards/workspace/${workspaceId}`,
         {
           credentials: "include",
         }

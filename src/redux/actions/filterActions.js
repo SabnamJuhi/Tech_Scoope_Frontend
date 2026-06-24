@@ -2,7 +2,7 @@ export const updateFilter =
   (body) => async (dispatch) => {
     try {
       const res = await fetch(
-        "http://localhost:5000/api/filter/update",
+        `${import.meta.env.VITE_BACKEND_URL}/api/filter/update`,
         {
           method: "POST",
           headers: {

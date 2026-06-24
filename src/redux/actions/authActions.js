@@ -7,7 +7,7 @@ import { apiFetch } from "../../api/fetchApi";
 export const registerUser = (formData) => async (dispatch) => {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/auth/register",
+      `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`,
       {
         method: "POST",
         headers: {
@@ -32,7 +32,7 @@ export const registerUser = (formData) => async (dispatch) => {
 export const loginUser = (formData) => async (dispatch) => {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/auth/login",
+      `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
       {
         method: "POST",
         headers: {
@@ -57,7 +57,7 @@ export const loginUser = (formData) => async (dispatch) => {
 export const getMe = () => async (dispatch) => {
   try {
     const res = await fetch(
-      "http://localhost:5000/api/auth/me",
+      `${import.meta.env.VITE_BACKEND_URL}/api/auth/me`,
       {
         credentials: "include",
       }
@@ -76,7 +76,7 @@ export const getMe = () => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
   await fetch(
-    "http://localhost:5000/api/auth/logout",
+    `${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`,
     {
       method: "POST",
       credentials: "include",
@@ -92,7 +92,7 @@ export const logoutUser = () => async (dispatch) => {
 export const getUsers = () => async (dispatch) => {
 
   const res = await fetch(
-    "http://localhost:5000/api/auth",
+    `${import.meta.env.VITE_BACKEND_URL}/api/auth`,
     {
       credentials: "include",
     }

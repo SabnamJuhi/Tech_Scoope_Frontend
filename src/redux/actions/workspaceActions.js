@@ -2,7 +2,7 @@
 
 export const getWorkspaces = () => async (dispatch) => {
   try {
-    const res = await fetch("http://localhost:5000/api/workspaces", {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/workspaces`, {
       credentials: "include",
     });
 
@@ -20,7 +20,7 @@ export const getWorkspaces = () => async (dispatch) => {
 
 export const createWorkspace = (workspaceData) => async (dispatch) => {
   try {
-    const res = await fetch("http://localhost:5000/api/workspaces", {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/workspaces`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

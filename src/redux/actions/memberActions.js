@@ -3,7 +3,7 @@ export const getMembers = (workspaceId) => async (dispatch) => {
     if (!workspaceId) return;
 
     const res = await fetch(
-      `http://localhost:5000/api/members/${workspaceId}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/members/${workspaceId}`,
       {
         credentials: "include",
       },
@@ -21,7 +21,7 @@ export const getMembers = (workspaceId) => async (dispatch) => {
 };
 export const inviteMember = (workspaceId, body) => async (dispatch) => {
   const res = await fetch(
-    `http://localhost:5000/api/members/${workspaceId}/invite`,
+    `${import.meta.env.VITE_BACKEND_URL}/api/members/${workspaceId}/invite`,
     {
       method: "POST",
       headers: {
@@ -42,7 +42,7 @@ export const inviteMember = (workspaceId, body) => async (dispatch) => {
 };
 
 export const removeMember = (workspaceId, memberId) => async (dispatch) => {
-  await fetch(`http://localhost:5000/api/members/${workspaceId}/${memberId}`, {
+  await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/members/${workspaceId}/${memberId}`, {
     method: "DELETE",
     credentials: "include",
   });
@@ -54,7 +54,7 @@ export const removeMember = (workspaceId, memberId) => async (dispatch) => {
 };
 
 export const changeRole = (workspaceId, memberId, role) => async (dispatch) => {
-  await fetch(`http://localhost:5000/api/members/${workspaceId}/${memberId}`, {
+  await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/members/${workspaceId}/${memberId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
